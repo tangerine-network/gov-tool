@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"encoding/hex"
 	"fmt"
 	"log"
@@ -22,21 +23,85 @@ const rpcURL = "https://mainnet-rpc.tangerine-network.io"
 var governanceAddress = common.HexToAddress("0x246FcDE58581e2754f215A523C0718C4BFc8041F")
 var minStake = new(big.Int).Mul(big.NewInt(1e6), big.NewInt(1e18))
 
-var conn *ethclient.Client
+var client *ethclient.Client
 var gov *Governance
 
 func init() {
 	var err error
 
-	conn, err = ethclient.Dial(rpcURL)
+	client, err = ethclient.Dial(rpcURL)
 	if err != nil {
 		panic(err)
 	}
 
-	gov, err = NewGovernance(governanceAddress, conn)
+	gov, err = NewGovernance(governanceAddress, client)
 	if err != nil {
 		panic(err)
 	}
+}
+
+func networkStatusCmd(c *cli.Context) error {
+	latestHeader, err := client.HeaderByNumber(context.Background(), nil)
+	if err != nil {
+		return err
+	}
+
+	txOps := &bind.CallOpts{}
+	roundHeight, err := gov.RoundHeight(
+		txOps, new(big.Int).SetUint64(latestHeader.Round))
+	if err != nil {
+		return err
+	}
+
+	header, err := client.HeaderByNumber(context.Background(), roundHeight)
+	if err != nil {
+		return err
+	}
+
+	elapsed := time.Duration(time.Now().Unix())*time.Second -
+		time.Duration(header.Time)*time.Millisecond
+
+	fmt.Printf("Height:\t\t%s\n", latestHeader.Number.String())
+	fmt.Printf("Round:\t\t%d\n", latestHeader.Round)
+	fmt.Printf("Round Height:\t%s\n", roundHeight.String())
+	fmt.Printf("Round Elapsed:\t%s\n", elapsed.String())
+	return nil
+}
+
+func getNodeStatusCmd(c *cli.Context) error {
+	txOps := &bind.CallOpts{}
+
+	nodeLen, err := gov.NodesLength(txOps)
+	if err != nil {
+		return err
+	}
+
+	minStake, err := gov.MinStake(txOps)
+	if err != nil {
+		return err
+	}
+
+	for i := uint64(0); i < nodeLen.Uint64(); i++ {
+		n, err := gov.Nodes(txOps, big.NewInt(int64(i)))
+		if err != nil {
+			return err
+		}
+
+		if n.Staked.Cmp(minStake) < 0 && n.Unstaked.Cmp(big.NewInt(0)) < 0 {
+			continue
+		}
+
+		fmt.Println("*", n.Name)
+		fmt.Println("  Address:", n.Owner.Hex())
+		fmt.Println("  Email:", n.Email)
+		fmt.Println("  Staked:", n.Staked)
+		fmt.Println("  Unstaked:", n.Unstaked)
+		fmt.Println("  UnstakedAt:", time.Unix(n.UnstakedAt.Int64(), 0))
+		fmt.Println("  Fined:", n.Fined)
+		fmt.Println("  Public Key:", hex.EncodeToString(n.PublicKey))
+		fmt.Println("")
+	}
+	return nil
 }
 
 func registerCmd(c *cli.Context) error {
@@ -168,55 +233,17 @@ func withdrawCmd(c *cli.Context) error {
 	return nil
 }
 
-func getNodeStatusCmd(c *cli.Context) error {
-	conn, err := ethclient.Dial(rpcURL)
-	if err != nil {
-		return err
-	}
-
-	gov, err := NewGovernance(governanceAddress, conn)
-	if err != nil {
-		return err
-	}
-
-	txOps := &bind.CallOpts{}
-
-	nodeLen, err := gov.NodesLength(txOps)
-	if err != nil {
-		return err
-	}
-
-	minStake, err := gov.MinStake(txOps)
-	if err != nil {
-		return err
-	}
-
-	for i := uint64(0); i < nodeLen.Uint64(); i++ {
-		n, err := gov.Nodes(txOps, big.NewInt(int64(i)))
-		if err != nil {
-			return err
-		}
-
-		if n.Staked.Cmp(minStake) < 0 && n.Unstaked.Cmp(big.NewInt(0)) < 0 {
-			continue
-		}
-
-		fmt.Println("*", n.Name)
-		fmt.Println("  Address:", n.Owner.Hex())
-		fmt.Println("  Email:", n.Email)
-		fmt.Println("  Staked:", n.Staked)
-		fmt.Println("  Unstaked:", n.Unstaked)
-		fmt.Println("  UnstakedAt:", time.Unix(n.UnstakedAt.Int64(), 0))
-		fmt.Println("  Fined:", n.Fined)
-		fmt.Println("  Public Key:", hex.EncodeToString(n.PublicKey))
-		fmt.Println("")
-	}
-	return nil
-}
-
 func main() {
 	app := &cli.App{
 		Commands: []*cli.Command{
+			{
+				Name:   "network-status",
+				Action: networkStatusCmd,
+			},
+			{
+				Name:   "node-status",
+				Action: getNodeStatusCmd,
+			},
 			{
 				Name:   "register",
 				Usage:  "node.key Name Email Location URL",
@@ -236,10 +263,6 @@ func main() {
 				Name:   "withdraw",
 				Usage:  "node.key",
 				Action: withdrawCmd,
-			},
-			{
-				Name:   "node-status",
-				Action: getNodeStatusCmd,
 			},
 		},
 	}

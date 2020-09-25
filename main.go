@@ -7,6 +7,7 @@ import (
 	"math/big"
 	"os"
 	"strconv"
+	"time"
 
 	"github.com/urfave/cli/v2"
 
@@ -196,17 +197,19 @@ func getNodeStatusCmd(c *cli.Context) error {
 			return err
 		}
 
-		if n.Staked.Cmp(minStake) < 0 {
+		if n.Staked.Cmp(minStake) < 0 && n.Unstaked.Cmp(big.NewInt(0)) < 0 {
 			continue
 		}
 
-		fmt.Println("========")
-		fmt.Println(n.Name)
-		fmt.Println("fined: ", n.Fined)
-		fmt.Println("email: ", n.Email)
-		fmt.Println("owner", n.Owner.Hex())
-		fmt.Println("public key", hex.EncodeToString(n.PublicKey))
-
+		fmt.Println("*", n.Name)
+		fmt.Println("  Address:", n.Owner.Hex())
+		fmt.Println("  Email:", n.Email)
+		fmt.Println("  Staked:", n.Staked)
+		fmt.Println("  Unstaked:", n.Unstaked)
+		fmt.Println("  UnstakedAt:", time.Unix(n.UnstakedAt.Int64(), 0))
+		fmt.Println("  Fined:", n.Fined)
+		fmt.Println("  Public Key:", hex.EncodeToString(n.PublicKey))
+		fmt.Println("")
 	}
 	return nil
 }

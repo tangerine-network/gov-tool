@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/hex"
 	"fmt"
 	"log"
 	"math/big"
@@ -166,6 +167,50 @@ func withdrawCmd(c *cli.Context) error {
 	return nil
 }
 
+func getNodeStatusCmd(c *cli.Context) error {
+	conn, err := ethclient.Dial(rpcURL)
+	if err != nil {
+		return err
+	}
+
+	gov, err := NewGovernance(governanceAddress, conn)
+	if err != nil {
+		return err
+	}
+
+	txOps := &bind.CallOpts{}
+
+	nodeLen, err := gov.NodesLength(txOps)
+	if err != nil {
+		return err
+	}
+
+	minStake, err := gov.MinStake(txOps)
+	if err != nil {
+		return err
+	}
+
+	for i := uint64(0); i < nodeLen.Uint64(); i++ {
+		n, err := gov.Nodes(txOps, big.NewInt(int64(i)))
+		if err != nil {
+			return err
+		}
+
+		if n.Staked.Cmp(minStake) < 0 {
+			continue
+		}
+
+		fmt.Println("========")
+		fmt.Println(n.Name)
+		fmt.Println("fined: ", n.Fined)
+		fmt.Println("email: ", n.Email)
+		fmt.Println("owner", n.Owner.Hex())
+		fmt.Println("public key", hex.EncodeToString(n.PublicKey))
+
+	}
+	return nil
+}
+
 func main() {
 	app := &cli.App{
 		Commands: []*cli.Command{
@@ -188,6 +233,10 @@ func main() {
 				Name:   "withdraw",
 				Usage:  "node.key",
 				Action: withdrawCmd,
+			},
+			{
+				Name:   "node-status",
+				Action: getNodeStatusCmd,
 			},
 		},
 	}

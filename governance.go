@@ -7,12 +7,12 @@ import (
 	"math/big"
 	"strings"
 
-	ethereum "github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/event"
+	ethereum "github.com/tangerine-network/go-tangerine"
+	"github.com/tangerine-network/go-tangerine/accounts/abi"
+	"github.com/tangerine-network/go-tangerine/accounts/abi/bind"
+	"github.com/tangerine-network/go-tangerine/common"
+	"github.com/tangerine-network/go-tangerine/core/types"
+	"github.com/tangerine-network/go-tangerine/event"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -20,6 +20,7 @@ var (
 	_ = big.NewInt
 	_ = strings.NewReader
 	_ = ethereum.NotFound
+	_ = abi.U256
 	_ = bind.Bind
 	_ = common.Big1
 	_ = types.BloomLookup
@@ -173,7 +174,7 @@ func (_Governance *GovernanceTransactorRaw) Transact(opts *bind.TransactOpts, me
 
 // BlockGasLimit is a free data retrieval call binding the contract method 0x7877a797.
 //
-// Solidity: function blockGasLimit() view returns(uint256)
+// Solidity: function blockGasLimit() constant returns(uint256)
 func (_Governance *GovernanceCaller) BlockGasLimit(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -185,21 +186,21 @@ func (_Governance *GovernanceCaller) BlockGasLimit(opts *bind.CallOpts) (*big.In
 
 // BlockGasLimit is a free data retrieval call binding the contract method 0x7877a797.
 //
-// Solidity: function blockGasLimit() view returns(uint256)
+// Solidity: function blockGasLimit() constant returns(uint256)
 func (_Governance *GovernanceSession) BlockGasLimit() (*big.Int, error) {
 	return _Governance.Contract.BlockGasLimit(&_Governance.CallOpts)
 }
 
 // BlockGasLimit is a free data retrieval call binding the contract method 0x7877a797.
 //
-// Solidity: function blockGasLimit() view returns(uint256)
+// Solidity: function blockGasLimit() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) BlockGasLimit() (*big.Int, error) {
 	return _Governance.Contract.BlockGasLimit(&_Governance.CallOpts)
 }
 
 // Crs is a free data retrieval call binding the contract method 0x8a591369.
 //
-// Solidity: function crs() view returns(bytes32)
+// Solidity: function crs() constant returns(bytes32)
 func (_Governance *GovernanceCaller) Crs(opts *bind.CallOpts) ([32]byte, error) {
 	var (
 		ret0 = new([32]byte)
@@ -211,21 +212,21 @@ func (_Governance *GovernanceCaller) Crs(opts *bind.CallOpts) ([32]byte, error) 
 
 // Crs is a free data retrieval call binding the contract method 0x8a591369.
 //
-// Solidity: function crs() view returns(bytes32)
+// Solidity: function crs() constant returns(bytes32)
 func (_Governance *GovernanceSession) Crs() ([32]byte, error) {
 	return _Governance.Contract.Crs(&_Governance.CallOpts)
 }
 
 // Crs is a free data retrieval call binding the contract method 0x8a591369.
 //
-// Solidity: function crs() view returns(bytes32)
+// Solidity: function crs() constant returns(bytes32)
 func (_Governance *GovernanceCallerSession) Crs() ([32]byte, error) {
 	return _Governance.Contract.Crs(&_Governance.CallOpts)
 }
 
 // CrsRound is a free data retrieval call binding the contract method 0x47731325.
 //
-// Solidity: function crsRound() view returns(uint256)
+// Solidity: function crsRound() constant returns(uint256)
 func (_Governance *GovernanceCaller) CrsRound(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -237,21 +238,21 @@ func (_Governance *GovernanceCaller) CrsRound(opts *bind.CallOpts) (*big.Int, er
 
 // CrsRound is a free data retrieval call binding the contract method 0x47731325.
 //
-// Solidity: function crsRound() view returns(uint256)
+// Solidity: function crsRound() constant returns(uint256)
 func (_Governance *GovernanceSession) CrsRound() (*big.Int, error) {
 	return _Governance.Contract.CrsRound(&_Governance.CallOpts)
 }
 
 // CrsRound is a free data retrieval call binding the contract method 0x47731325.
 //
-// Solidity: function crsRound() view returns(uint256)
+// Solidity: function crsRound() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) CrsRound() (*big.Int, error) {
 	return _Governance.Contract.CrsRound(&_Governance.CallOpts)
 }
 
 // DkgComplaints is a free data retrieval call binding the contract method 0x8d90a159.
 //
-// Solidity: function dkgComplaints(uint256 ) view returns(bytes)
+// Solidity: function dkgComplaints(uint256 ) constant returns(bytes)
 func (_Governance *GovernanceCaller) DkgComplaints(opts *bind.CallOpts, arg0 *big.Int) ([]byte, error) {
 	var (
 		ret0 = new([]byte)
@@ -263,21 +264,21 @@ func (_Governance *GovernanceCaller) DkgComplaints(opts *bind.CallOpts, arg0 *bi
 
 // DkgComplaints is a free data retrieval call binding the contract method 0x8d90a159.
 //
-// Solidity: function dkgComplaints(uint256 ) view returns(bytes)
+// Solidity: function dkgComplaints(uint256 ) constant returns(bytes)
 func (_Governance *GovernanceSession) DkgComplaints(arg0 *big.Int) ([]byte, error) {
 	return _Governance.Contract.DkgComplaints(&_Governance.CallOpts, arg0)
 }
 
 // DkgComplaints is a free data retrieval call binding the contract method 0x8d90a159.
 //
-// Solidity: function dkgComplaints(uint256 ) view returns(bytes)
+// Solidity: function dkgComplaints(uint256 ) constant returns(bytes)
 func (_Governance *GovernanceCallerSession) DkgComplaints(arg0 *big.Int) ([]byte, error) {
 	return _Governance.Contract.DkgComplaints(&_Governance.CallOpts, arg0)
 }
 
 // DkgComplaintsProposed is a free data retrieval call binding the contract method 0xe746714d.
 //
-// Solidity: function dkgComplaintsProposed(bytes32 ) view returns(bool)
+// Solidity: function dkgComplaintsProposed(bytes32 ) constant returns(bool)
 func (_Governance *GovernanceCaller) DkgComplaintsProposed(opts *bind.CallOpts, arg0 [32]byte) (bool, error) {
 	var (
 		ret0 = new(bool)
@@ -289,21 +290,21 @@ func (_Governance *GovernanceCaller) DkgComplaintsProposed(opts *bind.CallOpts, 
 
 // DkgComplaintsProposed is a free data retrieval call binding the contract method 0xe746714d.
 //
-// Solidity: function dkgComplaintsProposed(bytes32 ) view returns(bool)
+// Solidity: function dkgComplaintsProposed(bytes32 ) constant returns(bool)
 func (_Governance *GovernanceSession) DkgComplaintsProposed(arg0 [32]byte) (bool, error) {
 	return _Governance.Contract.DkgComplaintsProposed(&_Governance.CallOpts, arg0)
 }
 
 // DkgComplaintsProposed is a free data retrieval call binding the contract method 0xe746714d.
 //
-// Solidity: function dkgComplaintsProposed(bytes32 ) view returns(bool)
+// Solidity: function dkgComplaintsProposed(bytes32 ) constant returns(bool)
 func (_Governance *GovernanceCallerSession) DkgComplaintsProposed(arg0 [32]byte) (bool, error) {
 	return _Governance.Contract.DkgComplaintsProposed(&_Governance.CallOpts, arg0)
 }
 
 // DkgFinalizeds is a free data retrieval call binding the contract method 0x70f3ac54.
 //
-// Solidity: function dkgFinalizeds(address ) view returns(bool)
+// Solidity: function dkgFinalizeds(address ) constant returns(bool)
 func (_Governance *GovernanceCaller) DkgFinalizeds(opts *bind.CallOpts, arg0 common.Address) (bool, error) {
 	var (
 		ret0 = new(bool)
@@ -315,21 +316,21 @@ func (_Governance *GovernanceCaller) DkgFinalizeds(opts *bind.CallOpts, arg0 com
 
 // DkgFinalizeds is a free data retrieval call binding the contract method 0x70f3ac54.
 //
-// Solidity: function dkgFinalizeds(address ) view returns(bool)
+// Solidity: function dkgFinalizeds(address ) constant returns(bool)
 func (_Governance *GovernanceSession) DkgFinalizeds(arg0 common.Address) (bool, error) {
 	return _Governance.Contract.DkgFinalizeds(&_Governance.CallOpts, arg0)
 }
 
 // DkgFinalizeds is a free data retrieval call binding the contract method 0x70f3ac54.
 //
-// Solidity: function dkgFinalizeds(address ) view returns(bool)
+// Solidity: function dkgFinalizeds(address ) constant returns(bool)
 func (_Governance *GovernanceCallerSession) DkgFinalizeds(arg0 common.Address) (bool, error) {
 	return _Governance.Contract.DkgFinalizeds(&_Governance.CallOpts, arg0)
 }
 
 // DkgFinalizedsCount is a free data retrieval call binding the contract method 0xdd2083d0.
 //
-// Solidity: function dkgFinalizedsCount() view returns(uint256)
+// Solidity: function dkgFinalizedsCount() constant returns(uint256)
 func (_Governance *GovernanceCaller) DkgFinalizedsCount(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -341,21 +342,21 @@ func (_Governance *GovernanceCaller) DkgFinalizedsCount(opts *bind.CallOpts) (*b
 
 // DkgFinalizedsCount is a free data retrieval call binding the contract method 0xdd2083d0.
 //
-// Solidity: function dkgFinalizedsCount() view returns(uint256)
+// Solidity: function dkgFinalizedsCount() constant returns(uint256)
 func (_Governance *GovernanceSession) DkgFinalizedsCount() (*big.Int, error) {
 	return _Governance.Contract.DkgFinalizedsCount(&_Governance.CallOpts)
 }
 
 // DkgFinalizedsCount is a free data retrieval call binding the contract method 0xdd2083d0.
 //
-// Solidity: function dkgFinalizedsCount() view returns(uint256)
+// Solidity: function dkgFinalizedsCount() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) DkgFinalizedsCount() (*big.Int, error) {
 	return _Governance.Contract.DkgFinalizedsCount(&_Governance.CallOpts)
 }
 
 // DkgMPKReadys is a free data retrieval call binding the contract method 0x9bc9f489.
 //
-// Solidity: function dkgMPKReadys(address ) view returns(bool)
+// Solidity: function dkgMPKReadys(address ) constant returns(bool)
 func (_Governance *GovernanceCaller) DkgMPKReadys(opts *bind.CallOpts, arg0 common.Address) (bool, error) {
 	var (
 		ret0 = new(bool)
@@ -367,21 +368,21 @@ func (_Governance *GovernanceCaller) DkgMPKReadys(opts *bind.CallOpts, arg0 comm
 
 // DkgMPKReadys is a free data retrieval call binding the contract method 0x9bc9f489.
 //
-// Solidity: function dkgMPKReadys(address ) view returns(bool)
+// Solidity: function dkgMPKReadys(address ) constant returns(bool)
 func (_Governance *GovernanceSession) DkgMPKReadys(arg0 common.Address) (bool, error) {
 	return _Governance.Contract.DkgMPKReadys(&_Governance.CallOpts, arg0)
 }
 
 // DkgMPKReadys is a free data retrieval call binding the contract method 0x9bc9f489.
 //
-// Solidity: function dkgMPKReadys(address ) view returns(bool)
+// Solidity: function dkgMPKReadys(address ) constant returns(bool)
 func (_Governance *GovernanceCallerSession) DkgMPKReadys(arg0 common.Address) (bool, error) {
 	return _Governance.Contract.DkgMPKReadys(&_Governance.CallOpts, arg0)
 }
 
 // DkgMPKReadysCount is a free data retrieval call binding the contract method 0xb03e75e4.
 //
-// Solidity: function dkgMPKReadysCount() view returns(uint256)
+// Solidity: function dkgMPKReadysCount() constant returns(uint256)
 func (_Governance *GovernanceCaller) DkgMPKReadysCount(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -393,21 +394,21 @@ func (_Governance *GovernanceCaller) DkgMPKReadysCount(opts *bind.CallOpts) (*bi
 
 // DkgMPKReadysCount is a free data retrieval call binding the contract method 0xb03e75e4.
 //
-// Solidity: function dkgMPKReadysCount() view returns(uint256)
+// Solidity: function dkgMPKReadysCount() constant returns(uint256)
 func (_Governance *GovernanceSession) DkgMPKReadysCount() (*big.Int, error) {
 	return _Governance.Contract.DkgMPKReadysCount(&_Governance.CallOpts)
 }
 
 // DkgMPKReadysCount is a free data retrieval call binding the contract method 0xb03e75e4.
 //
-// Solidity: function dkgMPKReadysCount() view returns(uint256)
+// Solidity: function dkgMPKReadysCount() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) DkgMPKReadysCount() (*big.Int, error) {
 	return _Governance.Contract.DkgMPKReadysCount(&_Governance.CallOpts)
 }
 
 // DkgMasterPublicKeyOffset is a free data retrieval call binding the contract method 0x99aadb9a.
 //
-// Solidity: function dkgMasterPublicKeyOffset(bytes32 ) view returns(uint256)
+// Solidity: function dkgMasterPublicKeyOffset(bytes32 ) constant returns(uint256)
 func (_Governance *GovernanceCaller) DkgMasterPublicKeyOffset(opts *bind.CallOpts, arg0 [32]byte) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -419,21 +420,21 @@ func (_Governance *GovernanceCaller) DkgMasterPublicKeyOffset(opts *bind.CallOpt
 
 // DkgMasterPublicKeyOffset is a free data retrieval call binding the contract method 0x99aadb9a.
 //
-// Solidity: function dkgMasterPublicKeyOffset(bytes32 ) view returns(uint256)
+// Solidity: function dkgMasterPublicKeyOffset(bytes32 ) constant returns(uint256)
 func (_Governance *GovernanceSession) DkgMasterPublicKeyOffset(arg0 [32]byte) (*big.Int, error) {
 	return _Governance.Contract.DkgMasterPublicKeyOffset(&_Governance.CallOpts, arg0)
 }
 
 // DkgMasterPublicKeyOffset is a free data retrieval call binding the contract method 0x99aadb9a.
 //
-// Solidity: function dkgMasterPublicKeyOffset(bytes32 ) view returns(uint256)
+// Solidity: function dkgMasterPublicKeyOffset(bytes32 ) constant returns(uint256)
 func (_Governance *GovernanceCallerSession) DkgMasterPublicKeyOffset(arg0 [32]byte) (*big.Int, error) {
 	return _Governance.Contract.DkgMasterPublicKeyOffset(&_Governance.CallOpts, arg0)
 }
 
 // DkgMasterPublicKeys is a free data retrieval call binding the contract method 0xd21abb78.
 //
-// Solidity: function dkgMasterPublicKeys(uint256 ) view returns(bytes)
+// Solidity: function dkgMasterPublicKeys(uint256 ) constant returns(bytes)
 func (_Governance *GovernanceCaller) DkgMasterPublicKeys(opts *bind.CallOpts, arg0 *big.Int) ([]byte, error) {
 	var (
 		ret0 = new([]byte)
@@ -445,21 +446,21 @@ func (_Governance *GovernanceCaller) DkgMasterPublicKeys(opts *bind.CallOpts, ar
 
 // DkgMasterPublicKeys is a free data retrieval call binding the contract method 0xd21abb78.
 //
-// Solidity: function dkgMasterPublicKeys(uint256 ) view returns(bytes)
+// Solidity: function dkgMasterPublicKeys(uint256 ) constant returns(bytes)
 func (_Governance *GovernanceSession) DkgMasterPublicKeys(arg0 *big.Int) ([]byte, error) {
 	return _Governance.Contract.DkgMasterPublicKeys(&_Governance.CallOpts, arg0)
 }
 
 // DkgMasterPublicKeys is a free data retrieval call binding the contract method 0xd21abb78.
 //
-// Solidity: function dkgMasterPublicKeys(uint256 ) view returns(bytes)
+// Solidity: function dkgMasterPublicKeys(uint256 ) constant returns(bytes)
 func (_Governance *GovernanceCallerSession) DkgMasterPublicKeys(arg0 *big.Int) ([]byte, error) {
 	return _Governance.Contract.DkgMasterPublicKeys(&_Governance.CallOpts, arg0)
 }
 
 // DkgResetCount is a free data retrieval call binding the contract method 0xf0771659.
 //
-// Solidity: function dkgResetCount(uint256 ) view returns(uint256)
+// Solidity: function dkgResetCount(uint256 ) constant returns(uint256)
 func (_Governance *GovernanceCaller) DkgResetCount(opts *bind.CallOpts, arg0 *big.Int) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -471,21 +472,21 @@ func (_Governance *GovernanceCaller) DkgResetCount(opts *bind.CallOpts, arg0 *bi
 
 // DkgResetCount is a free data retrieval call binding the contract method 0xf0771659.
 //
-// Solidity: function dkgResetCount(uint256 ) view returns(uint256)
+// Solidity: function dkgResetCount(uint256 ) constant returns(uint256)
 func (_Governance *GovernanceSession) DkgResetCount(arg0 *big.Int) (*big.Int, error) {
 	return _Governance.Contract.DkgResetCount(&_Governance.CallOpts, arg0)
 }
 
 // DkgResetCount is a free data retrieval call binding the contract method 0xf0771659.
 //
-// Solidity: function dkgResetCount(uint256 ) view returns(uint256)
+// Solidity: function dkgResetCount(uint256 ) constant returns(uint256)
 func (_Governance *GovernanceCallerSession) DkgResetCount(arg0 *big.Int) (*big.Int, error) {
 	return _Governance.Contract.DkgResetCount(&_Governance.CallOpts, arg0)
 }
 
 // DkgRound is a free data retrieval call binding the contract method 0x7a8c1c1e.
 //
-// Solidity: function dkgRound() view returns(uint256)
+// Solidity: function dkgRound() constant returns(uint256)
 func (_Governance *GovernanceCaller) DkgRound(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -497,21 +498,21 @@ func (_Governance *GovernanceCaller) DkgRound(opts *bind.CallOpts) (*big.Int, er
 
 // DkgRound is a free data retrieval call binding the contract method 0x7a8c1c1e.
 //
-// Solidity: function dkgRound() view returns(uint256)
+// Solidity: function dkgRound() constant returns(uint256)
 func (_Governance *GovernanceSession) DkgRound() (*big.Int, error) {
 	return _Governance.Contract.DkgRound(&_Governance.CallOpts)
 }
 
 // DkgRound is a free data retrieval call binding the contract method 0x7a8c1c1e.
 //
-// Solidity: function dkgRound() view returns(uint256)
+// Solidity: function dkgRound() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) DkgRound() (*big.Int, error) {
 	return _Governance.Contract.DkgRound(&_Governance.CallOpts)
 }
 
 // DkgSuccesses is a free data retrieval call binding the contract method 0x072bf11a.
 //
-// Solidity: function dkgSuccesses(address ) view returns(bool)
+// Solidity: function dkgSuccesses(address ) constant returns(bool)
 func (_Governance *GovernanceCaller) DkgSuccesses(opts *bind.CallOpts, arg0 common.Address) (bool, error) {
 	var (
 		ret0 = new(bool)
@@ -523,21 +524,21 @@ func (_Governance *GovernanceCaller) DkgSuccesses(opts *bind.CallOpts, arg0 comm
 
 // DkgSuccesses is a free data retrieval call binding the contract method 0x072bf11a.
 //
-// Solidity: function dkgSuccesses(address ) view returns(bool)
+// Solidity: function dkgSuccesses(address ) constant returns(bool)
 func (_Governance *GovernanceSession) DkgSuccesses(arg0 common.Address) (bool, error) {
 	return _Governance.Contract.DkgSuccesses(&_Governance.CallOpts, arg0)
 }
 
 // DkgSuccesses is a free data retrieval call binding the contract method 0x072bf11a.
 //
-// Solidity: function dkgSuccesses(address ) view returns(bool)
+// Solidity: function dkgSuccesses(address ) constant returns(bool)
 func (_Governance *GovernanceCallerSession) DkgSuccesses(arg0 common.Address) (bool, error) {
 	return _Governance.Contract.DkgSuccesses(&_Governance.CallOpts, arg0)
 }
 
 // DkgSuccessesCount is a free data retrieval call binding the contract method 0x4cb38c7a.
 //
-// Solidity: function dkgSuccessesCount() view returns(uint256)
+// Solidity: function dkgSuccessesCount() constant returns(uint256)
 func (_Governance *GovernanceCaller) DkgSuccessesCount(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -549,21 +550,21 @@ func (_Governance *GovernanceCaller) DkgSuccessesCount(opts *bind.CallOpts) (*bi
 
 // DkgSuccessesCount is a free data retrieval call binding the contract method 0x4cb38c7a.
 //
-// Solidity: function dkgSuccessesCount() view returns(uint256)
+// Solidity: function dkgSuccessesCount() constant returns(uint256)
 func (_Governance *GovernanceSession) DkgSuccessesCount() (*big.Int, error) {
 	return _Governance.Contract.DkgSuccessesCount(&_Governance.CallOpts)
 }
 
 // DkgSuccessesCount is a free data retrieval call binding the contract method 0x4cb38c7a.
 //
-// Solidity: function dkgSuccessesCount() view returns(uint256)
+// Solidity: function dkgSuccessesCount() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) DkgSuccessesCount() (*big.Int, error) {
 	return _Governance.Contract.DkgSuccessesCount(&_Governance.CallOpts)
 }
 
 // FineValues is a free data retrieval call binding the contract method 0xae1f289d.
 //
-// Solidity: function fineValues(uint256 ) view returns(uint256)
+// Solidity: function fineValues(uint256 ) constant returns(uint256)
 func (_Governance *GovernanceCaller) FineValues(opts *bind.CallOpts, arg0 *big.Int) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -575,21 +576,21 @@ func (_Governance *GovernanceCaller) FineValues(opts *bind.CallOpts, arg0 *big.I
 
 // FineValues is a free data retrieval call binding the contract method 0xae1f289d.
 //
-// Solidity: function fineValues(uint256 ) view returns(uint256)
+// Solidity: function fineValues(uint256 ) constant returns(uint256)
 func (_Governance *GovernanceSession) FineValues(arg0 *big.Int) (*big.Int, error) {
 	return _Governance.Contract.FineValues(&_Governance.CallOpts, arg0)
 }
 
 // FineValues is a free data retrieval call binding the contract method 0xae1f289d.
 //
-// Solidity: function fineValues(uint256 ) view returns(uint256)
+// Solidity: function fineValues(uint256 ) constant returns(uint256)
 func (_Governance *GovernanceCallerSession) FineValues(arg0 *big.Int) (*big.Int, error) {
 	return _Governance.Contract.FineValues(&_Governance.CallOpts, arg0)
 }
 
 // FinedRecords is a free data retrieval call binding the contract method 0xa1e460eb.
 //
-// Solidity: function finedRecords(bytes32 ) view returns(bool)
+// Solidity: function finedRecords(bytes32 ) constant returns(bool)
 func (_Governance *GovernanceCaller) FinedRecords(opts *bind.CallOpts, arg0 [32]byte) (bool, error) {
 	var (
 		ret0 = new(bool)
@@ -601,21 +602,21 @@ func (_Governance *GovernanceCaller) FinedRecords(opts *bind.CallOpts, arg0 [32]
 
 // FinedRecords is a free data retrieval call binding the contract method 0xa1e460eb.
 //
-// Solidity: function finedRecords(bytes32 ) view returns(bool)
+// Solidity: function finedRecords(bytes32 ) constant returns(bool)
 func (_Governance *GovernanceSession) FinedRecords(arg0 [32]byte) (bool, error) {
 	return _Governance.Contract.FinedRecords(&_Governance.CallOpts, arg0)
 }
 
 // FinedRecords is a free data retrieval call binding the contract method 0xa1e460eb.
 //
-// Solidity: function finedRecords(bytes32 ) view returns(bool)
+// Solidity: function finedRecords(bytes32 ) constant returns(bool)
 func (_Governance *GovernanceCallerSession) FinedRecords(arg0 [32]byte) (bool, error) {
 	return _Governance.Contract.FinedRecords(&_Governance.CallOpts, arg0)
 }
 
 // LambdaBA is a free data retrieval call binding the contract method 0x2deb3316.
 //
-// Solidity: function lambdaBA() view returns(uint256)
+// Solidity: function lambdaBA() constant returns(uint256)
 func (_Governance *GovernanceCaller) LambdaBA(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -627,21 +628,21 @@ func (_Governance *GovernanceCaller) LambdaBA(opts *bind.CallOpts) (*big.Int, er
 
 // LambdaBA is a free data retrieval call binding the contract method 0x2deb3316.
 //
-// Solidity: function lambdaBA() view returns(uint256)
+// Solidity: function lambdaBA() constant returns(uint256)
 func (_Governance *GovernanceSession) LambdaBA() (*big.Int, error) {
 	return _Governance.Contract.LambdaBA(&_Governance.CallOpts)
 }
 
 // LambdaBA is a free data retrieval call binding the contract method 0x2deb3316.
 //
-// Solidity: function lambdaBA() view returns(uint256)
+// Solidity: function lambdaBA() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) LambdaBA() (*big.Int, error) {
 	return _Governance.Contract.LambdaBA(&_Governance.CallOpts)
 }
 
 // LambdaDKG is a free data retrieval call binding the contract method 0xa9601a8d.
 //
-// Solidity: function lambdaDKG() view returns(uint256)
+// Solidity: function lambdaDKG() constant returns(uint256)
 func (_Governance *GovernanceCaller) LambdaDKG(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -653,21 +654,21 @@ func (_Governance *GovernanceCaller) LambdaDKG(opts *bind.CallOpts) (*big.Int, e
 
 // LambdaDKG is a free data retrieval call binding the contract method 0xa9601a8d.
 //
-// Solidity: function lambdaDKG() view returns(uint256)
+// Solidity: function lambdaDKG() constant returns(uint256)
 func (_Governance *GovernanceSession) LambdaDKG() (*big.Int, error) {
 	return _Governance.Contract.LambdaDKG(&_Governance.CallOpts)
 }
 
 // LambdaDKG is a free data retrieval call binding the contract method 0xa9601a8d.
 //
-// Solidity: function lambdaDKG() view returns(uint256)
+// Solidity: function lambdaDKG() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) LambdaDKG() (*big.Int, error) {
 	return _Governance.Contract.LambdaDKG(&_Governance.CallOpts)
 }
 
 // LastHalvedAmount is a free data retrieval call binding the contract method 0xa0488e55.
 //
-// Solidity: function lastHalvedAmount() view returns(uint256)
+// Solidity: function lastHalvedAmount() constant returns(uint256)
 func (_Governance *GovernanceCaller) LastHalvedAmount(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -679,21 +680,21 @@ func (_Governance *GovernanceCaller) LastHalvedAmount(opts *bind.CallOpts) (*big
 
 // LastHalvedAmount is a free data retrieval call binding the contract method 0xa0488e55.
 //
-// Solidity: function lastHalvedAmount() view returns(uint256)
+// Solidity: function lastHalvedAmount() constant returns(uint256)
 func (_Governance *GovernanceSession) LastHalvedAmount() (*big.Int, error) {
 	return _Governance.Contract.LastHalvedAmount(&_Governance.CallOpts)
 }
 
 // LastHalvedAmount is a free data retrieval call binding the contract method 0xa0488e55.
 //
-// Solidity: function lastHalvedAmount() view returns(uint256)
+// Solidity: function lastHalvedAmount() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) LastHalvedAmount() (*big.Int, error) {
 	return _Governance.Contract.LastHalvedAmount(&_Governance.CallOpts)
 }
 
 // LastProposedHeight is a free data retrieval call binding the contract method 0xd767fdc9.
 //
-// Solidity: function lastProposedHeight(address ) view returns(uint256)
+// Solidity: function lastProposedHeight(address ) constant returns(uint256)
 func (_Governance *GovernanceCaller) LastProposedHeight(opts *bind.CallOpts, arg0 common.Address) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -705,21 +706,21 @@ func (_Governance *GovernanceCaller) LastProposedHeight(opts *bind.CallOpts, arg
 
 // LastProposedHeight is a free data retrieval call binding the contract method 0xd767fdc9.
 //
-// Solidity: function lastProposedHeight(address ) view returns(uint256)
+// Solidity: function lastProposedHeight(address ) constant returns(uint256)
 func (_Governance *GovernanceSession) LastProposedHeight(arg0 common.Address) (*big.Int, error) {
 	return _Governance.Contract.LastProposedHeight(&_Governance.CallOpts, arg0)
 }
 
 // LastProposedHeight is a free data retrieval call binding the contract method 0xd767fdc9.
 //
-// Solidity: function lastProposedHeight(address ) view returns(uint256)
+// Solidity: function lastProposedHeight(address ) constant returns(uint256)
 func (_Governance *GovernanceCallerSession) LastProposedHeight(arg0 common.Address) (*big.Int, error) {
 	return _Governance.Contract.LastProposedHeight(&_Governance.CallOpts, arg0)
 }
 
 // LockupPeriod is a free data retrieval call binding the contract method 0xee947a7c.
 //
-// Solidity: function lockupPeriod() view returns(uint256)
+// Solidity: function lockupPeriod() constant returns(uint256)
 func (_Governance *GovernanceCaller) LockupPeriod(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -731,21 +732,21 @@ func (_Governance *GovernanceCaller) LockupPeriod(opts *bind.CallOpts) (*big.Int
 
 // LockupPeriod is a free data retrieval call binding the contract method 0xee947a7c.
 //
-// Solidity: function lockupPeriod() view returns(uint256)
+// Solidity: function lockupPeriod() constant returns(uint256)
 func (_Governance *GovernanceSession) LockupPeriod() (*big.Int, error) {
 	return _Governance.Contract.LockupPeriod(&_Governance.CallOpts)
 }
 
 // LockupPeriod is a free data retrieval call binding the contract method 0xee947a7c.
 //
-// Solidity: function lockupPeriod() view returns(uint256)
+// Solidity: function lockupPeriod() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) LockupPeriod() (*big.Int, error) {
 	return _Governance.Contract.LockupPeriod(&_Governance.CallOpts)
 }
 
 // MinBlockInterval is a free data retrieval call binding the contract method 0xb3606b56.
 //
-// Solidity: function minBlockInterval() view returns(uint256)
+// Solidity: function minBlockInterval() constant returns(uint256)
 func (_Governance *GovernanceCaller) MinBlockInterval(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -757,21 +758,21 @@ func (_Governance *GovernanceCaller) MinBlockInterval(opts *bind.CallOpts) (*big
 
 // MinBlockInterval is a free data retrieval call binding the contract method 0xb3606b56.
 //
-// Solidity: function minBlockInterval() view returns(uint256)
+// Solidity: function minBlockInterval() constant returns(uint256)
 func (_Governance *GovernanceSession) MinBlockInterval() (*big.Int, error) {
 	return _Governance.Contract.MinBlockInterval(&_Governance.CallOpts)
 }
 
 // MinBlockInterval is a free data retrieval call binding the contract method 0xb3606b56.
 //
-// Solidity: function minBlockInterval() view returns(uint256)
+// Solidity: function minBlockInterval() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) MinBlockInterval() (*big.Int, error) {
 	return _Governance.Contract.MinBlockInterval(&_Governance.CallOpts)
 }
 
 // MinGasPrice is a free data retrieval call binding the contract method 0xd96ed505.
 //
-// Solidity: function minGasPrice() view returns(uint256)
+// Solidity: function minGasPrice() constant returns(uint256)
 func (_Governance *GovernanceCaller) MinGasPrice(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -783,21 +784,21 @@ func (_Governance *GovernanceCaller) MinGasPrice(opts *bind.CallOpts) (*big.Int,
 
 // MinGasPrice is a free data retrieval call binding the contract method 0xd96ed505.
 //
-// Solidity: function minGasPrice() view returns(uint256)
+// Solidity: function minGasPrice() constant returns(uint256)
 func (_Governance *GovernanceSession) MinGasPrice() (*big.Int, error) {
 	return _Governance.Contract.MinGasPrice(&_Governance.CallOpts)
 }
 
 // MinGasPrice is a free data retrieval call binding the contract method 0xd96ed505.
 //
-// Solidity: function minGasPrice() view returns(uint256)
+// Solidity: function minGasPrice() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) MinGasPrice() (*big.Int, error) {
 	return _Governance.Contract.MinGasPrice(&_Governance.CallOpts)
 }
 
 // MinStake is a free data retrieval call binding the contract method 0x375b3c0a.
 //
-// Solidity: function minStake() view returns(uint256)
+// Solidity: function minStake() constant returns(uint256)
 func (_Governance *GovernanceCaller) MinStake(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -809,21 +810,21 @@ func (_Governance *GovernanceCaller) MinStake(opts *bind.CallOpts) (*big.Int, er
 
 // MinStake is a free data retrieval call binding the contract method 0x375b3c0a.
 //
-// Solidity: function minStake() view returns(uint256)
+// Solidity: function minStake() constant returns(uint256)
 func (_Governance *GovernanceSession) MinStake() (*big.Int, error) {
 	return _Governance.Contract.MinStake(&_Governance.CallOpts)
 }
 
 // MinStake is a free data retrieval call binding the contract method 0x375b3c0a.
 //
-// Solidity: function minStake() view returns(uint256)
+// Solidity: function minStake() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) MinStake() (*big.Int, error) {
 	return _Governance.Contract.MinStake(&_Governance.CallOpts)
 }
 
 // MiningVelocity is a free data retrieval call binding the contract method 0x2357e72a.
 //
-// Solidity: function miningVelocity() view returns(uint256)
+// Solidity: function miningVelocity() constant returns(uint256)
 func (_Governance *GovernanceCaller) MiningVelocity(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -835,21 +836,21 @@ func (_Governance *GovernanceCaller) MiningVelocity(opts *bind.CallOpts) (*big.I
 
 // MiningVelocity is a free data retrieval call binding the contract method 0x2357e72a.
 //
-// Solidity: function miningVelocity() view returns(uint256)
+// Solidity: function miningVelocity() constant returns(uint256)
 func (_Governance *GovernanceSession) MiningVelocity() (*big.Int, error) {
 	return _Governance.Contract.MiningVelocity(&_Governance.CallOpts)
 }
 
 // MiningVelocity is a free data retrieval call binding the contract method 0x2357e72a.
 //
-// Solidity: function miningVelocity() view returns(uint256)
+// Solidity: function miningVelocity() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) MiningVelocity() (*big.Int, error) {
 	return _Governance.Contract.MiningVelocity(&_Governance.CallOpts)
 }
 
 // NextHalvingSupply is a free data retrieval call binding the contract method 0x8ca55162.
 //
-// Solidity: function nextHalvingSupply() view returns(uint256)
+// Solidity: function nextHalvingSupply() constant returns(uint256)
 func (_Governance *GovernanceCaller) NextHalvingSupply(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -861,21 +862,21 @@ func (_Governance *GovernanceCaller) NextHalvingSupply(opts *bind.CallOpts) (*bi
 
 // NextHalvingSupply is a free data retrieval call binding the contract method 0x8ca55162.
 //
-// Solidity: function nextHalvingSupply() view returns(uint256)
+// Solidity: function nextHalvingSupply() constant returns(uint256)
 func (_Governance *GovernanceSession) NextHalvingSupply() (*big.Int, error) {
 	return _Governance.Contract.NextHalvingSupply(&_Governance.CallOpts)
 }
 
 // NextHalvingSupply is a free data retrieval call binding the contract method 0x8ca55162.
 //
-// Solidity: function nextHalvingSupply() view returns(uint256)
+// Solidity: function nextHalvingSupply() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) NextHalvingSupply() (*big.Int, error) {
 	return _Governance.Contract.NextHalvingSupply(&_Governance.CallOpts)
 }
 
 // Nodes is a free data retrieval call binding the contract method 0x1c53c280.
 //
-// Solidity: function nodes(uint256 ) view returns(address owner, bytes publicKey, uint256 staked, uint256 fined, string name, string email, string location, string url, uint256 unstaked, uint256 unstakedAt)
+// Solidity: function nodes(uint256 ) constant returns(address owner, bytes publicKey, uint256 staked, uint256 fined, string name, string email, string location, string url, uint256 unstaked, uint256 unstakedAt)
 func (_Governance *GovernanceCaller) Nodes(opts *bind.CallOpts, arg0 *big.Int) (struct {
 	Owner      common.Address
 	PublicKey  []byte
@@ -907,7 +908,7 @@ func (_Governance *GovernanceCaller) Nodes(opts *bind.CallOpts, arg0 *big.Int) (
 
 // Nodes is a free data retrieval call binding the contract method 0x1c53c280.
 //
-// Solidity: function nodes(uint256 ) view returns(address owner, bytes publicKey, uint256 staked, uint256 fined, string name, string email, string location, string url, uint256 unstaked, uint256 unstakedAt)
+// Solidity: function nodes(uint256 ) constant returns(address owner, bytes publicKey, uint256 staked, uint256 fined, string name, string email, string location, string url, uint256 unstaked, uint256 unstakedAt)
 func (_Governance *GovernanceSession) Nodes(arg0 *big.Int) (struct {
 	Owner      common.Address
 	PublicKey  []byte
@@ -925,7 +926,7 @@ func (_Governance *GovernanceSession) Nodes(arg0 *big.Int) (struct {
 
 // Nodes is a free data retrieval call binding the contract method 0x1c53c280.
 //
-// Solidity: function nodes(uint256 ) view returns(address owner, bytes publicKey, uint256 staked, uint256 fined, string name, string email, string location, string url, uint256 unstaked, uint256 unstakedAt)
+// Solidity: function nodes(uint256 ) constant returns(address owner, bytes publicKey, uint256 staked, uint256 fined, string name, string email, string location, string url, uint256 unstaked, uint256 unstakedAt)
 func (_Governance *GovernanceCallerSession) Nodes(arg0 *big.Int) (struct {
 	Owner      common.Address
 	PublicKey  []byte
@@ -943,7 +944,7 @@ func (_Governance *GovernanceCallerSession) Nodes(arg0 *big.Int) (struct {
 
 // NodesLength is a free data retrieval call binding the contract method 0xf33de6c0.
 //
-// Solidity: function nodesLength() view returns(uint256)
+// Solidity: function nodesLength() constant returns(uint256)
 func (_Governance *GovernanceCaller) NodesLength(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -955,21 +956,21 @@ func (_Governance *GovernanceCaller) NodesLength(opts *bind.CallOpts) (*big.Int,
 
 // NodesLength is a free data retrieval call binding the contract method 0xf33de6c0.
 //
-// Solidity: function nodesLength() view returns(uint256)
+// Solidity: function nodesLength() constant returns(uint256)
 func (_Governance *GovernanceSession) NodesLength() (*big.Int, error) {
 	return _Governance.Contract.NodesLength(&_Governance.CallOpts)
 }
 
 // NodesLength is a free data retrieval call binding the contract method 0xf33de6c0.
 //
-// Solidity: function nodesLength() view returns(uint256)
+// Solidity: function nodesLength() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) NodesLength() (*big.Int, error) {
 	return _Governance.Contract.NodesLength(&_Governance.CallOpts)
 }
 
 // NodesOffsetByAddress is a free data retrieval call binding the contract method 0x85031123.
 //
-// Solidity: function nodesOffsetByAddress(address ) view returns(int256)
+// Solidity: function nodesOffsetByAddress(address ) constant returns(int256)
 func (_Governance *GovernanceCaller) NodesOffsetByAddress(opts *bind.CallOpts, arg0 common.Address) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -981,21 +982,21 @@ func (_Governance *GovernanceCaller) NodesOffsetByAddress(opts *bind.CallOpts, a
 
 // NodesOffsetByAddress is a free data retrieval call binding the contract method 0x85031123.
 //
-// Solidity: function nodesOffsetByAddress(address ) view returns(int256)
+// Solidity: function nodesOffsetByAddress(address ) constant returns(int256)
 func (_Governance *GovernanceSession) NodesOffsetByAddress(arg0 common.Address) (*big.Int, error) {
 	return _Governance.Contract.NodesOffsetByAddress(&_Governance.CallOpts, arg0)
 }
 
 // NodesOffsetByAddress is a free data retrieval call binding the contract method 0x85031123.
 //
-// Solidity: function nodesOffsetByAddress(address ) view returns(int256)
+// Solidity: function nodesOffsetByAddress(address ) constant returns(int256)
 func (_Governance *GovernanceCallerSession) NodesOffsetByAddress(arg0 common.Address) (*big.Int, error) {
 	return _Governance.Contract.NodesOffsetByAddress(&_Governance.CallOpts, arg0)
 }
 
 // NodesOffsetByNodeKeyAddress is a free data retrieval call binding the contract method 0xed3fbdf9.
 //
-// Solidity: function nodesOffsetByNodeKeyAddress(address ) view returns(int256)
+// Solidity: function nodesOffsetByNodeKeyAddress(address ) constant returns(int256)
 func (_Governance *GovernanceCaller) NodesOffsetByNodeKeyAddress(opts *bind.CallOpts, arg0 common.Address) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -1007,21 +1008,21 @@ func (_Governance *GovernanceCaller) NodesOffsetByNodeKeyAddress(opts *bind.Call
 
 // NodesOffsetByNodeKeyAddress is a free data retrieval call binding the contract method 0xed3fbdf9.
 //
-// Solidity: function nodesOffsetByNodeKeyAddress(address ) view returns(int256)
+// Solidity: function nodesOffsetByNodeKeyAddress(address ) constant returns(int256)
 func (_Governance *GovernanceSession) NodesOffsetByNodeKeyAddress(arg0 common.Address) (*big.Int, error) {
 	return _Governance.Contract.NodesOffsetByNodeKeyAddress(&_Governance.CallOpts, arg0)
 }
 
 // NodesOffsetByNodeKeyAddress is a free data retrieval call binding the contract method 0xed3fbdf9.
 //
-// Solidity: function nodesOffsetByNodeKeyAddress(address ) view returns(int256)
+// Solidity: function nodesOffsetByNodeKeyAddress(address ) constant returns(int256)
 func (_Governance *GovernanceCallerSession) NodesOffsetByNodeKeyAddress(arg0 common.Address) (*big.Int, error) {
 	return _Governance.Contract.NodesOffsetByNodeKeyAddress(&_Governance.CallOpts, arg0)
 }
 
 // NotaryParamAlpha is a free data retrieval call binding the contract method 0x4c523214.
 //
-// Solidity: function notaryParamAlpha() view returns(uint256)
+// Solidity: function notaryParamAlpha() constant returns(uint256)
 func (_Governance *GovernanceCaller) NotaryParamAlpha(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -1033,21 +1034,21 @@ func (_Governance *GovernanceCaller) NotaryParamAlpha(opts *bind.CallOpts) (*big
 
 // NotaryParamAlpha is a free data retrieval call binding the contract method 0x4c523214.
 //
-// Solidity: function notaryParamAlpha() view returns(uint256)
+// Solidity: function notaryParamAlpha() constant returns(uint256)
 func (_Governance *GovernanceSession) NotaryParamAlpha() (*big.Int, error) {
 	return _Governance.Contract.NotaryParamAlpha(&_Governance.CallOpts)
 }
 
 // NotaryParamAlpha is a free data retrieval call binding the contract method 0x4c523214.
 //
-// Solidity: function notaryParamAlpha() view returns(uint256)
+// Solidity: function notaryParamAlpha() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) NotaryParamAlpha() (*big.Int, error) {
 	return _Governance.Contract.NotaryParamAlpha(&_Governance.CallOpts)
 }
 
 // NotaryParamBeta is a free data retrieval call binding the contract method 0x1f29f5c8.
 //
-// Solidity: function notaryParamBeta() view returns(uint256)
+// Solidity: function notaryParamBeta() constant returns(uint256)
 func (_Governance *GovernanceCaller) NotaryParamBeta(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -1059,21 +1060,21 @@ func (_Governance *GovernanceCaller) NotaryParamBeta(opts *bind.CallOpts) (*big.
 
 // NotaryParamBeta is a free data retrieval call binding the contract method 0x1f29f5c8.
 //
-// Solidity: function notaryParamBeta() view returns(uint256)
+// Solidity: function notaryParamBeta() constant returns(uint256)
 func (_Governance *GovernanceSession) NotaryParamBeta() (*big.Int, error) {
 	return _Governance.Contract.NotaryParamBeta(&_Governance.CallOpts)
 }
 
 // NotaryParamBeta is a free data retrieval call binding the contract method 0x1f29f5c8.
 //
-// Solidity: function notaryParamBeta() view returns(uint256)
+// Solidity: function notaryParamBeta() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) NotaryParamBeta() (*big.Int, error) {
 	return _Governance.Contract.NotaryParamBeta(&_Governance.CallOpts)
 }
 
 // NotarySetSize is a free data retrieval call binding the contract method 0x0b3441dc.
 //
-// Solidity: function notarySetSize() view returns(uint256)
+// Solidity: function notarySetSize() constant returns(uint256)
 func (_Governance *GovernanceCaller) NotarySetSize(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -1085,21 +1086,21 @@ func (_Governance *GovernanceCaller) NotarySetSize(opts *bind.CallOpts) (*big.In
 
 // NotarySetSize is a free data retrieval call binding the contract method 0x0b3441dc.
 //
-// Solidity: function notarySetSize() view returns(uint256)
+// Solidity: function notarySetSize() constant returns(uint256)
 func (_Governance *GovernanceSession) NotarySetSize() (*big.Int, error) {
 	return _Governance.Contract.NotarySetSize(&_Governance.CallOpts)
 }
 
 // NotarySetSize is a free data retrieval call binding the contract method 0x0b3441dc.
 //
-// Solidity: function notarySetSize() view returns(uint256)
+// Solidity: function notarySetSize() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) NotarySetSize() (*big.Int, error) {
 	return _Governance.Contract.NotarySetSize(&_Governance.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
-// Solidity: function owner() view returns(address)
+// Solidity: function owner() constant returns(address)
 func (_Governance *GovernanceCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 	var (
 		ret0 = new(common.Address)
@@ -1111,21 +1112,21 @@ func (_Governance *GovernanceCaller) Owner(opts *bind.CallOpts) (common.Address,
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
-// Solidity: function owner() view returns(address)
+// Solidity: function owner() constant returns(address)
 func (_Governance *GovernanceSession) Owner() (common.Address, error) {
 	return _Governance.Contract.Owner(&_Governance.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
-// Solidity: function owner() view returns(address)
+// Solidity: function owner() constant returns(address)
 func (_Governance *GovernanceCallerSession) Owner() (common.Address, error) {
 	return _Governance.Contract.Owner(&_Governance.CallOpts)
 }
 
 // RoundHeight is a free data retrieval call binding the contract method 0xaf58ef06.
 //
-// Solidity: function roundHeight(uint256 ) view returns(uint256)
+// Solidity: function roundHeight(uint256 ) constant returns(uint256)
 func (_Governance *GovernanceCaller) RoundHeight(opts *bind.CallOpts, arg0 *big.Int) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -1137,21 +1138,21 @@ func (_Governance *GovernanceCaller) RoundHeight(opts *bind.CallOpts, arg0 *big.
 
 // RoundHeight is a free data retrieval call binding the contract method 0xaf58ef06.
 //
-// Solidity: function roundHeight(uint256 ) view returns(uint256)
+// Solidity: function roundHeight(uint256 ) constant returns(uint256)
 func (_Governance *GovernanceSession) RoundHeight(arg0 *big.Int) (*big.Int, error) {
 	return _Governance.Contract.RoundHeight(&_Governance.CallOpts, arg0)
 }
 
 // RoundHeight is a free data retrieval call binding the contract method 0xaf58ef06.
 //
-// Solidity: function roundHeight(uint256 ) view returns(uint256)
+// Solidity: function roundHeight(uint256 ) constant returns(uint256)
 func (_Governance *GovernanceCallerSession) RoundHeight(arg0 *big.Int) (*big.Int, error) {
 	return _Governance.Contract.RoundHeight(&_Governance.CallOpts, arg0)
 }
 
 // RoundLength is a free data retrieval call binding the contract method 0x8b649b94.
 //
-// Solidity: function roundLength() view returns(uint256)
+// Solidity: function roundLength() constant returns(uint256)
 func (_Governance *GovernanceCaller) RoundLength(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -1163,21 +1164,21 @@ func (_Governance *GovernanceCaller) RoundLength(opts *bind.CallOpts) (*big.Int,
 
 // RoundLength is a free data retrieval call binding the contract method 0x8b649b94.
 //
-// Solidity: function roundLength() view returns(uint256)
+// Solidity: function roundLength() constant returns(uint256)
 func (_Governance *GovernanceSession) RoundLength() (*big.Int, error) {
 	return _Governance.Contract.RoundLength(&_Governance.CallOpts)
 }
 
 // RoundLength is a free data retrieval call binding the contract method 0x8b649b94.
 //
-// Solidity: function roundLength() view returns(uint256)
+// Solidity: function roundLength() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) RoundLength() (*big.Int, error) {
 	return _Governance.Contract.RoundLength(&_Governance.CallOpts)
 }
 
 // TotalStaked is a free data retrieval call binding the contract method 0x817b1cd2.
 //
-// Solidity: function totalStaked() view returns(uint256)
+// Solidity: function totalStaked() constant returns(uint256)
 func (_Governance *GovernanceCaller) TotalStaked(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -1189,21 +1190,21 @@ func (_Governance *GovernanceCaller) TotalStaked(opts *bind.CallOpts) (*big.Int,
 
 // TotalStaked is a free data retrieval call binding the contract method 0x817b1cd2.
 //
-// Solidity: function totalStaked() view returns(uint256)
+// Solidity: function totalStaked() constant returns(uint256)
 func (_Governance *GovernanceSession) TotalStaked() (*big.Int, error) {
 	return _Governance.Contract.TotalStaked(&_Governance.CallOpts)
 }
 
 // TotalStaked is a free data retrieval call binding the contract method 0x817b1cd2.
 //
-// Solidity: function totalStaked() view returns(uint256)
+// Solidity: function totalStaked() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) TotalStaked() (*big.Int, error) {
 	return _Governance.Contract.TotalStaked(&_Governance.CallOpts)
 }
 
 // TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
 //
-// Solidity: function totalSupply() view returns(uint256)
+// Solidity: function totalSupply() constant returns(uint256)
 func (_Governance *GovernanceCaller) TotalSupply(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
@@ -1215,21 +1216,21 @@ func (_Governance *GovernanceCaller) TotalSupply(opts *bind.CallOpts) (*big.Int,
 
 // TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
 //
-// Solidity: function totalSupply() view returns(uint256)
+// Solidity: function totalSupply() constant returns(uint256)
 func (_Governance *GovernanceSession) TotalSupply() (*big.Int, error) {
 	return _Governance.Contract.TotalSupply(&_Governance.CallOpts)
 }
 
 // TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
 //
-// Solidity: function totalSupply() view returns(uint256)
+// Solidity: function totalSupply() constant returns(uint256)
 func (_Governance *GovernanceCallerSession) TotalSupply() (*big.Int, error) {
 	return _Governance.Contract.TotalSupply(&_Governance.CallOpts)
 }
 
 // Withdrawable is a free data retrieval call binding the contract method 0x50188301.
 //
-// Solidity: function withdrawable() view returns(bool)
+// Solidity: function withdrawable() constant returns(bool)
 func (_Governance *GovernanceCaller) Withdrawable(opts *bind.CallOpts) (bool, error) {
 	var (
 		ret0 = new(bool)
@@ -1241,14 +1242,14 @@ func (_Governance *GovernanceCaller) Withdrawable(opts *bind.CallOpts) (bool, er
 
 // Withdrawable is a free data retrieval call binding the contract method 0x50188301.
 //
-// Solidity: function withdrawable() view returns(bool)
+// Solidity: function withdrawable() constant returns(bool)
 func (_Governance *GovernanceSession) Withdrawable() (bool, error) {
 	return _Governance.Contract.Withdrawable(&_Governance.CallOpts)
 }
 
 // Withdrawable is a free data retrieval call binding the contract method 0x50188301.
 //
-// Solidity: function withdrawable() view returns(bool)
+// Solidity: function withdrawable() constant returns(bool)
 func (_Governance *GovernanceCallerSession) Withdrawable() (bool, error) {
 	return _Governance.Contract.Withdrawable(&_Governance.CallOpts)
 }
@@ -1360,21 +1361,21 @@ func (_Governance *GovernanceTransactorSession) AddDKGSuccess(Success []byte) (*
 
 // PayFine is a paid mutator transaction binding the contract method 0x3edfa229.
 //
-// Solidity: function payFine(address NodeAddress) payable returns()
+// Solidity: function payFine(address NodeAddress) returns()
 func (_Governance *GovernanceTransactor) PayFine(opts *bind.TransactOpts, NodeAddress common.Address) (*types.Transaction, error) {
 	return _Governance.contract.Transact(opts, "payFine", NodeAddress)
 }
 
 // PayFine is a paid mutator transaction binding the contract method 0x3edfa229.
 //
-// Solidity: function payFine(address NodeAddress) payable returns()
+// Solidity: function payFine(address NodeAddress) returns()
 func (_Governance *GovernanceSession) PayFine(NodeAddress common.Address) (*types.Transaction, error) {
 	return _Governance.Contract.PayFine(&_Governance.TransactOpts, NodeAddress)
 }
 
 // PayFine is a paid mutator transaction binding the contract method 0x3edfa229.
 //
-// Solidity: function payFine(address NodeAddress) payable returns()
+// Solidity: function payFine(address NodeAddress) returns()
 func (_Governance *GovernanceTransactorSession) PayFine(NodeAddress common.Address) (*types.Transaction, error) {
 	return _Governance.Contract.PayFine(&_Governance.TransactOpts, NodeAddress)
 }
@@ -1402,21 +1403,21 @@ func (_Governance *GovernanceTransactorSession) ProposeCRS(Round *big.Int, Signe
 
 // Register is a paid mutator transaction binding the contract method 0xd242f4cc.
 //
-// Solidity: function register(bytes PublicKey, string Name, string Email, string Location, string Url) payable returns()
+// Solidity: function register(bytes PublicKey, string Name, string Email, string Location, string Url) returns()
 func (_Governance *GovernanceTransactor) Register(opts *bind.TransactOpts, PublicKey []byte, Name string, Email string, Location string, Url string) (*types.Transaction, error) {
 	return _Governance.contract.Transact(opts, "register", PublicKey, Name, Email, Location, Url)
 }
 
 // Register is a paid mutator transaction binding the contract method 0xd242f4cc.
 //
-// Solidity: function register(bytes PublicKey, string Name, string Email, string Location, string Url) payable returns()
+// Solidity: function register(bytes PublicKey, string Name, string Email, string Location, string Url) returns()
 func (_Governance *GovernanceSession) Register(PublicKey []byte, Name string, Email string, Location string, Url string) (*types.Transaction, error) {
 	return _Governance.Contract.Register(&_Governance.TransactOpts, PublicKey, Name, Email, Location, Url)
 }
 
 // Register is a paid mutator transaction binding the contract method 0xd242f4cc.
 //
-// Solidity: function register(bytes PublicKey, string Name, string Email, string Location, string Url) payable returns()
+// Solidity: function register(bytes PublicKey, string Name, string Email, string Location, string Url) returns()
 func (_Governance *GovernanceTransactorSession) Register(PublicKey []byte, Name string, Email string, Location string, Url string) (*types.Transaction, error) {
 	return _Governance.Contract.Register(&_Governance.TransactOpts, PublicKey, Name, Email, Location, Url)
 }
@@ -1486,21 +1487,21 @@ func (_Governance *GovernanceTransactorSession) ResetDKG(NewSignedCRS []byte) (*
 
 // Stake is a paid mutator transaction binding the contract method 0x3a4b66f1.
 //
-// Solidity: function stake() payable returns()
+// Solidity: function stake() returns()
 func (_Governance *GovernanceTransactor) Stake(opts *bind.TransactOpts) (*types.Transaction, error) {
 	return _Governance.contract.Transact(opts, "stake")
 }
 
 // Stake is a paid mutator transaction binding the contract method 0x3a4b66f1.
 //
-// Solidity: function stake() payable returns()
+// Solidity: function stake() returns()
 func (_Governance *GovernanceSession) Stake() (*types.Transaction, error) {
 	return _Governance.Contract.Stake(&_Governance.TransactOpts)
 }
 
 // Stake is a paid mutator transaction binding the contract method 0x3a4b66f1.
 //
-// Solidity: function stake() payable returns()
+// Solidity: function stake() returns()
 func (_Governance *GovernanceTransactorSession) Stake() (*types.Transaction, error) {
 	return _Governance.Contract.Stake(&_Governance.TransactOpts)
 }
@@ -1764,17 +1765,6 @@ func (_Governance *GovernanceFilterer) WatchCRSProposed(opts *bind.WatchOpts, si
 	}), nil
 }
 
-// ParseCRSProposed is a log parse operation binding the contract event 0xd9b8f7e45cd2897523743eb19fd2021ba458d2962753a38bc31223e9b05ad408.
-//
-// Solidity: event CRSProposed(uint256 indexed Round, bytes32 CRS)
-func (_Governance *GovernanceFilterer) ParseCRSProposed(log types.Log) (*GovernanceCRSProposed, error) {
-	event := new(GovernanceCRSProposed)
-	if err := _Governance.contract.UnpackLog(event, "CRSProposed", log); err != nil {
-		return nil, err
-	}
-	return event, nil
-}
-
 // GovernanceConfigurationChangedIterator is returned from FilterConfigurationChanged and is used to iterate over the raw logs and unpacked data for ConfigurationChanged events raised by the Governance contract.
 type GovernanceConfigurationChangedIterator struct {
 	Event *GovernanceConfigurationChanged // Event containing the contract specifics and raw log
@@ -1894,17 +1884,6 @@ func (_Governance *GovernanceFilterer) WatchConfigurationChanged(opts *bind.Watc
 			}
 		}
 	}), nil
-}
-
-// ParseConfigurationChanged is a log parse operation binding the contract event 0xb6aa5c479f96dcbdbe1d8b70883ec95e8799f8e602ee347ed972a22c974b14c0.
-//
-// Solidity: event ConfigurationChanged()
-func (_Governance *GovernanceFilterer) ParseConfigurationChanged(log types.Log) (*GovernanceConfigurationChanged, error) {
-	event := new(GovernanceConfigurationChanged)
-	if err := _Governance.contract.UnpackLog(event, "ConfigurationChanged", log); err != nil {
-		return nil, err
-	}
-	return event, nil
 }
 
 // GovernanceDKGResetIterator is returned from FilterDKGReset and is used to iterate over the raw logs and unpacked data for DKGReset events raised by the Governance contract.
@@ -2040,17 +2019,6 @@ func (_Governance *GovernanceFilterer) WatchDKGReset(opts *bind.WatchOpts, sink 
 	}), nil
 }
 
-// ParseDKGReset is a log parse operation binding the contract event 0x1ef9b10077100d06aefe929eb17ff481feebce38b8a770e5b7d744febfab9f50.
-//
-// Solidity: event DKGReset(uint256 indexed Round, uint256 BlockHeight)
-func (_Governance *GovernanceFilterer) ParseDKGReset(log types.Log) (*GovernanceDKGReset, error) {
-	event := new(GovernanceDKGReset)
-	if err := _Governance.contract.UnpackLog(event, "DKGReset", log); err != nil {
-		return nil, err
-	}
-	return event, nil
-}
-
 // GovernanceFinePaidIterator is returned from FilterFinePaid and is used to iterate over the raw logs and unpacked data for FinePaid events raised by the Governance contract.
 type GovernanceFinePaidIterator struct {
 	Event *GovernanceFinePaid // Event containing the contract specifics and raw log
@@ -2182,17 +2150,6 @@ func (_Governance *GovernanceFilterer) WatchFinePaid(opts *bind.WatchOpts, sink 
 			}
 		}
 	}), nil
-}
-
-// ParseFinePaid is a log parse operation binding the contract event 0x34af8d99a30dafb3157ed162369d603f544a74be3858f8c7ac9e159829589c25.
-//
-// Solidity: event FinePaid(address indexed NodeAddress, uint256 Amount)
-func (_Governance *GovernanceFilterer) ParseFinePaid(log types.Log) (*GovernanceFinePaid, error) {
-	event := new(GovernanceFinePaid)
-	if err := _Governance.contract.UnpackLog(event, "FinePaid", log); err != nil {
-		return nil, err
-	}
-	return event, nil
 }
 
 // GovernanceFinedIterator is returned from FilterFined and is used to iterate over the raw logs and unpacked data for Fined events raised by the Governance contract.
@@ -2328,17 +2285,6 @@ func (_Governance *GovernanceFilterer) WatchFined(opts *bind.WatchOpts, sink cha
 	}), nil
 }
 
-// ParseFined is a log parse operation binding the contract event 0x00913d46aef0f0d115d70ea1c7c23198505f577d1d1916cc60710ca2204ae6ae.
-//
-// Solidity: event Fined(address indexed NodeAddress, uint256 Amount)
-func (_Governance *GovernanceFilterer) ParseFined(log types.Log) (*GovernanceFined, error) {
-	event := new(GovernanceFined)
-	if err := _Governance.contract.UnpackLog(event, "Fined", log); err != nil {
-		return nil, err
-	}
-	return event, nil
-}
-
 // GovernanceNodeAddedIterator is returned from FilterNodeAdded and is used to iterate over the raw logs and unpacked data for NodeAdded events raised by the Governance contract.
 type GovernanceNodeAddedIterator struct {
 	Event *GovernanceNodeAdded // Event containing the contract specifics and raw log
@@ -2469,17 +2415,6 @@ func (_Governance *GovernanceFilterer) WatchNodeAdded(opts *bind.WatchOpts, sink
 			}
 		}
 	}), nil
-}
-
-// ParseNodeAdded is a log parse operation binding the contract event 0xb25d03aaf308d7291709be1ea28b800463cf3a9a4c4a5555d7333a964c1dfebd.
-//
-// Solidity: event NodeAdded(address indexed NodeAddress)
-func (_Governance *GovernanceFilterer) ParseNodeAdded(log types.Log) (*GovernanceNodeAdded, error) {
-	event := new(GovernanceNodeAdded)
-	if err := _Governance.contract.UnpackLog(event, "NodeAdded", log); err != nil {
-		return nil, err
-	}
-	return event, nil
 }
 
 // GovernanceNodeOwnershipTransferedIterator is returned from FilterNodeOwnershipTransfered and is used to iterate over the raw logs and unpacked data for NodeOwnershipTransfered events raised by the Governance contract.
@@ -2623,17 +2558,6 @@ func (_Governance *GovernanceFilterer) WatchNodeOwnershipTransfered(opts *bind.W
 	}), nil
 }
 
-// ParseNodeOwnershipTransfered is a log parse operation binding the contract event 0x63616cf4caeee172ed91719b5e000da424d56855ee726aedb0a1d74fb3f1db2a.
-//
-// Solidity: event NodeOwnershipTransfered(address indexed NodeAddress, address indexed NewOwnerAddress)
-func (_Governance *GovernanceFilterer) ParseNodeOwnershipTransfered(log types.Log) (*GovernanceNodeOwnershipTransfered, error) {
-	event := new(GovernanceNodeOwnershipTransfered)
-	if err := _Governance.contract.UnpackLog(event, "NodeOwnershipTransfered", log); err != nil {
-		return nil, err
-	}
-	return event, nil
-}
-
 // GovernanceNodePublicKeyReplacedIterator is returned from FilterNodePublicKeyReplaced and is used to iterate over the raw logs and unpacked data for NodePublicKeyReplaced events raised by the Governance contract.
 type GovernanceNodePublicKeyReplacedIterator struct {
 	Event *GovernanceNodePublicKeyReplaced // Event containing the contract specifics and raw log
@@ -2767,17 +2691,6 @@ func (_Governance *GovernanceFilterer) WatchNodePublicKeyReplaced(opts *bind.Wat
 	}), nil
 }
 
-// ParseNodePublicKeyReplaced is a log parse operation binding the contract event 0x8aa688c270fa0768c37a1f455f711b6ea1a925f04db9ef433e01dcba78b80432.
-//
-// Solidity: event NodePublicKeyReplaced(address indexed NodeAddress, bytes PublicKey)
-func (_Governance *GovernanceFilterer) ParseNodePublicKeyReplaced(log types.Log) (*GovernanceNodePublicKeyReplaced, error) {
-	event := new(GovernanceNodePublicKeyReplaced)
-	if err := _Governance.contract.UnpackLog(event, "NodePublicKeyReplaced", log); err != nil {
-		return nil, err
-	}
-	return event, nil
-}
-
 // GovernanceNodeRemovedIterator is returned from FilterNodeRemoved and is used to iterate over the raw logs and unpacked data for NodeRemoved events raised by the Governance contract.
 type GovernanceNodeRemovedIterator struct {
 	Event *GovernanceNodeRemoved // Event containing the contract specifics and raw log
@@ -2908,17 +2821,6 @@ func (_Governance *GovernanceFilterer) WatchNodeRemoved(opts *bind.WatchOpts, si
 			}
 		}
 	}), nil
-}
-
-// ParseNodeRemoved is a log parse operation binding the contract event 0xcfc24166db4bb677e857cacabd1541fb2b30645021b27c5130419589b84db52b.
-//
-// Solidity: event NodeRemoved(address indexed NodeAddress)
-func (_Governance *GovernanceFilterer) ParseNodeRemoved(log types.Log) (*GovernanceNodeRemoved, error) {
-	event := new(GovernanceNodeRemoved)
-	if err := _Governance.contract.UnpackLog(event, "NodeRemoved", log); err != nil {
-		return nil, err
-	}
-	return event, nil
 }
 
 // GovernanceReportedIterator is returned from FilterReported and is used to iterate over the raw logs and unpacked data for Reported events raised by the Governance contract.
@@ -3056,17 +2958,6 @@ func (_Governance *GovernanceFilterer) WatchReported(opts *bind.WatchOpts, sink 
 	}), nil
 }
 
-// ParseReported is a log parse operation binding the contract event 0x0b4ded2614643cbc6be3ac9a1ed3188f2667636de75ea5250e190ad6af4b43d9.
-//
-// Solidity: event Reported(address indexed NodeAddress, uint256 Type, bytes Arg1, bytes Arg2)
-func (_Governance *GovernanceFilterer) ParseReported(log types.Log) (*GovernanceReported, error) {
-	event := new(GovernanceReported)
-	if err := _Governance.contract.UnpackLog(event, "Reported", log); err != nil {
-		return nil, err
-	}
-	return event, nil
-}
-
 // GovernanceStakedIterator is returned from FilterStaked and is used to iterate over the raw logs and unpacked data for Staked events raised by the Governance contract.
 type GovernanceStakedIterator struct {
 	Event *GovernanceStaked // Event containing the contract specifics and raw log
@@ -3198,17 +3089,6 @@ func (_Governance *GovernanceFilterer) WatchStaked(opts *bind.WatchOpts, sink ch
 			}
 		}
 	}), nil
-}
-
-// ParseStaked is a log parse operation binding the contract event 0x9e71bc8eea02a63969f509818f2dafb9254532904319f9dbda79b67bd34a5f3d.
-//
-// Solidity: event Staked(address indexed NodeAddress, uint256 Amount)
-func (_Governance *GovernanceFilterer) ParseStaked(log types.Log) (*GovernanceStaked, error) {
-	event := new(GovernanceStaked)
-	if err := _Governance.contract.UnpackLog(event, "Staked", log); err != nil {
-		return nil, err
-	}
-	return event, nil
 }
 
 // GovernanceUnstakedIterator is returned from FilterUnstaked and is used to iterate over the raw logs and unpacked data for Unstaked events raised by the Governance contract.
@@ -3344,17 +3224,6 @@ func (_Governance *GovernanceFilterer) WatchUnstaked(opts *bind.WatchOpts, sink 
 	}), nil
 }
 
-// ParseUnstaked is a log parse operation binding the contract event 0x0f5bb82176feb1b5e747e28471aa92156a04d9f3ab9f45f28e2d704232b93f75.
-//
-// Solidity: event Unstaked(address indexed NodeAddress, uint256 Amount)
-func (_Governance *GovernanceFilterer) ParseUnstaked(log types.Log) (*GovernanceUnstaked, error) {
-	event := new(GovernanceUnstaked)
-	if err := _Governance.contract.UnpackLog(event, "Unstaked", log); err != nil {
-		return nil, err
-	}
-	return event, nil
-}
-
 // GovernanceWithdrawnIterator is returned from FilterWithdrawn and is used to iterate over the raw logs and unpacked data for Withdrawn events raised by the Governance contract.
 type GovernanceWithdrawnIterator struct {
 	Event *GovernanceWithdrawn // Event containing the contract specifics and raw log
@@ -3486,15 +3355,4 @@ func (_Governance *GovernanceFilterer) WatchWithdrawn(opts *bind.WatchOpts, sink
 			}
 		}
 	}), nil
-}
-
-// ParseWithdrawn is a log parse operation binding the contract event 0x7084f5476618d8e60b11ef0d7d3f06914655adb8793e28ff7f018d4c76d505d5.
-//
-// Solidity: event Withdrawn(address indexed NodeAddress, uint256 Amount)
-func (_Governance *GovernanceFilterer) ParseWithdrawn(log types.Log) (*GovernanceWithdrawn, error) {
-	event := new(GovernanceWithdrawn)
-	if err := _Governance.contract.UnpackLog(event, "Withdrawn", log); err != nil {
-		return nil, err
-	}
-	return event, nil
 }

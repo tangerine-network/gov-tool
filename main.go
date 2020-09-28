@@ -16,6 +16,10 @@ import (
 	"github.com/tangerine-network/go-tangerine/common"
 	"github.com/tangerine-network/go-tangerine/crypto"
 	"github.com/tangerine-network/go-tangerine/ethclient"
+	"github.com/tangerine-network/tangerine-consensus/core/crypto/ecdsa"
+
+	coreCommon "github.com/tangerine-network/tangerine-consensus/common"
+	coreTypes "github.com/tangerine-network/tangerine-consensus/core/types"
 )
 
 const rpcURL = "https://mainnet-rpc.tangerine-network.io"
@@ -40,6 +44,82 @@ func init() {
 	}
 }
 
+type nodeInfo struct {
+	Owner      common.Address
+	PublicKey  []byte
+	Staked     *big.Int
+	Fined      *big.Int
+	Name       string
+	Email      string
+	Location   string
+	Url        string
+	Unstaked   *big.Int
+	UnstakedAt *big.Int
+}
+
+func qualifiedNodes(txOps *bind.CallOpts) []*nodeInfo {
+	nodeLen, err := gov.NodesLength(txOps)
+	if err != nil {
+		return err
+	}
+
+	minStake, err := gov.MinStake(txOps)
+	if err != nil {
+		return err
+	}
+
+	var nodes []*nodeInfo
+	for i := uint64(0); i < nodeLen.Uint64(); i++ {
+		n, err := gov.Nodes(txOps, big.NewInt(int64(i)))
+		if err != nil {
+			return err
+		}
+
+		if n.Fined.Cmp(big.NewInt(0)) > 0 {
+			continue
+		}
+
+		if node.Staked.Cmp(s.MinStake()) >= 0 {
+			nodes = append(nodes, &nodeInfo(n))
+		}
+	}
+	return nodes
+}
+
+func print(nodes map[coreTypes.NodeID]struct{}) {
+	// FIXME it should print node name, address, etc...
+	for id, _ := range nodes {
+		fmt.Println(id)
+	}
+}
+
+func getNotarySet(height) map[coreTypes.NodeID]struct{} {
+	txOps := &bind.CallOpts{
+		BlockNumber: height,
+	}
+	crsBytes, err := gov.Crs(txOps)
+	if err != nil {
+		panic(err)
+	}
+	crs := types.BytesToHash(crsBytes)
+	if crs == (common.Hash{}) {
+		return map[coreTypes.NodeID]struct{}{}
+	}
+
+	target := coreTypes.NewNotarySetTarget(coreCommon.Hash(crs))
+	ns := coreTypes.NewNodeSet()
+
+	for _, x := range qualifiedNodes(txOps) {
+		mpk, err := ecdsa.NewPublicKeyFromByteSlice(x.PublicKey)
+		if err != nil {
+			panic(err)
+		}
+		ns.Add(coreTypes.NewNodeID(mpk))
+	}
+	notarySetSize := gov.NotarySetSize(txOps)
+	return ns.GetSubSet(int(notarySetSize.Uint64()), target)
+}
+
 func networkStatusCmd(c *cli.Context) error {
 	latestHeader, err := client.HeaderByNumber(context.Background(), nil)
 	if err != nil {
@@ -57,6 +137,8 @@ func networkStatusCmd(c *cli.Context) error {
 	if err != nil {
 		return err
 	}
+	// FIXME using the correct block height
+	nextNotarySet := getNotarySet(header.Number)
 
 	elapsed := time.Duration(time.Now().Unix())*time.Second -
 		time.Duration(header.Time)*time.Millisecond
@@ -65,6 +147,8 @@ func networkStatusCmd(c *cli.Context) error {
 	fmt.Printf("Round:\t\t%d\n", latestHeader.Round)
 	fmt.Printf("Round Height:\t%s\n", roundHeight.String())
 	fmt.Printf("Round Elapsed:\t%s\n", elapsed.String())
+	fmt.Println("Next Notary Set:")
+	print(nextNotarySet)
 	return nil
 }
 

@@ -216,6 +216,8 @@ github.com/tangerine-network/bls v0.0.0-20191030123416-b9d2a98c6f9d h1:DVJMRt9Em
 github.com/tangerine-network/bls v0.0.0-20191030123416-b9d2a98c6f9d/go.mod h1:7Aik+AhsxfUke5s6uvvhUfbX7HuQ2G7J8dj4T6QZChY=
 github.com/tangerine-network/go-tangerine v1.0.0-tan h1:BJ02w6cKgDu7+lTg1FIfbJkrjOL2+/MwF9zWQQi4Z9k=
 github.com/tangerine-network/go-tangerine v1.0.0-tan/go.mod h1:gpEjPy00aPD3Po87Zn7RzWbNfaD8E9TUb0PSPoi72bY=
+github.com/tangerine-network/mcl v0.0.0-20190329024027-61aaa8348311 h1:G3EclfWOeHrqmh2axo0DmY1BUmKk4m5Rv97L8MJ5mss=
+github.com/tangerine-network/mcl v0.0.0-20190329024027-61aaa8348311/go.mod h1:5moAdPSwLaYhZ4YmV6aYsNo5rf92jd7SSydZuaFjgcI=
 github.com/tangerine-network/tangerine-consensus v0.0.0-20190918032558-02f1fe41ded6 h1:CmlclC3GJVSRHWKWcukoZ+D5FQeBrxRerdD9UDCjAqM=
 github.com/tangerine-network/tangerine-consensus v0.0.0-20190918032558-02f1fe41ded6/go.mod h1:+ayszr7jmzWRCdo64UsImNNF9778H0symxQx/2IrunM=
 github.com/tyler-smith/go-bip39 v1.0.1-0.20181017060643-dbb3b84ba2ef h1:wHSqTBrZW24CsNJDfeh9Ex6Pm0Rcpc7qrgKBiL44vF4=

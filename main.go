@@ -81,13 +81,15 @@ func getNodeStatusCmd(c *cli.Context) error {
 		return err
 	}
 
+	// List active nodes.
+	fmt.Println("==================== Active ====================")
 	for i := uint64(0); i < nodeLen.Uint64(); i++ {
 		n, err := gov.Nodes(txOps, big.NewInt(int64(i)))
 		if err != nil {
 			return err
 		}
 
-		if n.Staked.Cmp(minStake) < 0 && n.Unstaked.Cmp(big.NewInt(0)) < 0 {
+		if n.Staked.Cmp(minStake) < 0 || n.Fined.Cmp(big.NewInt(0)) > 0 {
 			continue
 		}
 
@@ -101,6 +103,28 @@ func getNodeStatusCmd(c *cli.Context) error {
 		fmt.Println("  Public Key:", hex.EncodeToString(n.PublicKey))
 		fmt.Println("")
 	}
+
+	// List fined / inactive nodes.
+	fmt.Println("=================== Inactive ===================")
+	for i := uint64(0); i < nodeLen.Uint64(); i++ {
+		n, err := gov.Nodes(txOps, big.NewInt(int64(i)))
+		if err != nil {
+			return err
+		}
+
+		if n.Staked.Cmp(minStake) < 0 || n.Fined.Cmp(big.NewInt(0)) > 0 {
+			fmt.Println("*", n.Name)
+			fmt.Println("  Address:", n.Owner.Hex())
+			fmt.Println("  Email:", n.Email)
+			fmt.Println("  Staked:", n.Staked)
+			fmt.Println("  Unstaked:", n.Unstaked)
+			fmt.Println("  UnstakedAt:", time.Unix(n.UnstakedAt.Int64(), 0))
+			fmt.Println("  Fined:", n.Fined)
+			fmt.Println("  Public Key:", hex.EncodeToString(n.PublicKey))
+			fmt.Println("")
+		}
+	}
+
 	return nil
 }
 
